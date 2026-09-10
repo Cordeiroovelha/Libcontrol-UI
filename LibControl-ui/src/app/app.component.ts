@@ -6,6 +6,8 @@ import { TableModule } from 'primeng/table';
 
 import { TooltipModule } from 'primeng/tooltip';
 import { BooksListComponent } from './books/books-list/books-list.component';
+import { LoginFormComponent } from './security/login-form/login-form.component';
+import { AuthService } from './security/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +15,13 @@ import { BooksListComponent } from './books/books-list/books-list.component';
   imports: [
     RouterOutlet,
     BooksListComponent,
+    LoginFormComponent,
     ButtonModule,
     TableModule,
     TooltipModule
+  ],
+  providers: [
+    AuthService
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
