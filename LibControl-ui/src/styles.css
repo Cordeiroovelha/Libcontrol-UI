@@ -4,6 +4,14 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #dcf1ff;
+  background: linear-gradient(to right, blue, rgb(255, 0, 191));
+}
+
+/*  */
+
+.p-button {
+  background-color: yellow !important;
+  color: black !important;
 }
 
 .col-actions-header {

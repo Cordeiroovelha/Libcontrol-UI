@@ -7,6 +7,11 @@
   text-align: center;
 }
 
+h1 {
+  color:orangered !important;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
 button, a, input{
   width: 100%;
 }
