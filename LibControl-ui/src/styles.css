@@ -4,13 +4,11 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #dcf1ff;
-  background: linear-gradient(to right, blue, rgb(255, 0, 191));
+  background: linear-gradient(to right, white, rgb(168, 168, 168));
 }
 
-/*  */
-
 .p-button {
-  background-color: yellow !important;
+  background-color: rgb(108, 189, 108) !important;
   color: black !important;
 }
 
