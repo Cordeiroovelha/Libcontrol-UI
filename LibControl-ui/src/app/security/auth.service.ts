@@ -38,7 +38,7 @@ export class AuthService {
         return Promise.reject('Usuário e/ou senha inválida!');
       }
       return Promise.reject(response);
-    };
+    }
   }
 
   private storeToken(token: string): void {
