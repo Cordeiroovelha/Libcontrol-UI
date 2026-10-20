@@ -13,7 +13,7 @@
             <th>Nome</th>
             <th>Data de Lançamento</th>
             <th>Categoria</th>
-            <th>Disponivel para alugar</th>
+            <th>Nota da critica</th>
             <th class="col-actions-header"></th>
           </tr>
         </ng-template>
@@ -23,7 +23,7 @@
             <td>{{ livros.name }}</td>
             <td>{{ livros.release_date }}</td>
             <td>{{ livros.category }}</td>
-            <td>{{ livros.booked }}</td>
+            <td>{{ livros.rated }}</td>
             <td class="col-actions">
                 <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
                 <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>

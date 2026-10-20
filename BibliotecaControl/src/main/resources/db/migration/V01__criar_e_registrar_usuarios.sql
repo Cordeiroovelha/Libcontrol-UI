@@ -8,6 +8,6 @@ CREATE TABLE user (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO user (id, name, email, password, active) 
-VALUES (1, 'Murilo Juttel', 'cordeiro@gmail.com', '1234', 1);
+VALUES (1, 'Murilo Juttel', 'cordeiro@gmail.com', '$2a$10$Ot4XGuyPP7r82nN3WXA0bOL1Qk9gShKDlVuPoyp89HoFnHcwO4Tji', 1);
 INSERT INTO user (id, name, email, password, active) 
 VALUES (2, 'Teste', 'teste@gmail.com', '4321', 1);

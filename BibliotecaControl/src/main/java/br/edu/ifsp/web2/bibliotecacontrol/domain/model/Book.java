@@ -33,14 +33,14 @@ public class Book {
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Category category;
-	private Boolean booked;
+	private float rated;
 
-	public Boolean getBooked() {
-		return booked;
+	public float getRated() {
+		return rated;
 	}
 
-	public void setBooked(Boolean booked) {
-		this.booked = booked;
+	public void setRated(float rated) {
+		this.rated = rated;
 	}
 
 	public Long getId() {

@@ -33,4 +33,10 @@ INSERT INTO user_permission (id_user, id_permission) values
 	(3, 3),
 	(3, 4),
 	(3, 5),
-	(3, 6);
+	(3, 6),
+    (1, 1),
+    (1, 2),
+    (1, 3),
+    (1, 4),
+    (1, 5),
+    (1, 6);

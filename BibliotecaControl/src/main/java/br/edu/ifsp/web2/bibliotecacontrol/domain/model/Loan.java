@@ -28,9 +28,8 @@ public class Loan {
 	@JsonFormat(pattern =  "dd/MM/yyyy")
 	private LocalDate date;
 	@NotNull
-	@Column(name = "return_loan")
-	@JsonFormat(pattern =  "dd/MM/yyyy")
-	private String return_date;
+	@Column(name = "rate")
+	private float rate;
 	@NotEmpty
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -55,13 +54,13 @@ public class Loan {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-
-	public String getReturn_date() {
-		return return_date;
+	
+	public float getRate() {
+		return rate;
 	}
 
-	public void setReturn_date(String return_date) {
-		this.return_date = return_date;
+	public void setRate(float rate) {
+		this.rate = rate;
 	}
 
 	public User getUser() {
