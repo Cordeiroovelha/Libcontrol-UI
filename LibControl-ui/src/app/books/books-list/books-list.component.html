@@ -14,7 +14,6 @@
             <th>Data de Lançamento</th>
             <th>Categoria</th>
             <th>Nota da critica</th>
-            <th class="col-actions-header"></th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-livros>
@@ -24,10 +23,6 @@
             <td>{{ livros.release_date }}</td>
             <td>{{ livros.category }}</td>
             <td>{{ livros.rated }}</td>
-            <td class="col-actions">
-                <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
-                <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button>
-            </td>
           </tr>
         </ng-template>
       </p-table>

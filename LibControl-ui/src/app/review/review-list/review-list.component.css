@@ -1,0 +1,63 @@
+:host ::ng-deep .col-actions .p-button {
+  background: #00E054 !important;
+  border: 1px solid #00E054 !important;
+  color: #000000 !important; /* Ícone preto para contrastar com o fundo verde */
+}
+
+:host ::ng-deep .col-actions .p-button:hover {
+  background: #00c846 !important;
+  border-color: #00c846 !important;
+  color: #000000 !important;
+}
+
+:host ::ng-deep .col-actions .p-button:focus {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #00E054 !important;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th,
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr,
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  background: rgb(68, 85, 102) !important;
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th,
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  border-color: rgb(153, 170, 187) !important;
+  border-width: 0 0 1px 0 !important;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-wrapper {
+  border: 1px solid rgb(153, 170, 187) !important;
+  border-radius: 6px;
+}
+
+/* 1. Arredondar o container, forçar o corte dos cantos e manter a borda */
+:host ::ng-deep .p-datatable .p-datatable-wrapper {
+  border-radius: 8px !important;
+  border: 1px solid rgb(153, 170, 187) !important;
+  overflow: hidden !important;
+}
+
+/* 2. Garantir que a tabela em si não tenha fundo sobressalente */
+:host ::ng-deep .p-datatable .p-datatable-table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  background: transparent !important;
+}
+
+/* 3. Arredondar os cantos do Cabeçalho (Topo) */
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th:first-child {
+  border-top-left-radius: 8px !important;
+}
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th:last-child {
+  border-top-right-radius: 8px !important;
+}
+
+/* 4. Arredondar os cantos da Última Linha (Base) */
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr:last-child > td:first-child {
+  border-bottom-left-radius: 8px !important;
+}
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr:last-child > td:last-child {
+  border-bottom-right-radius: 8px !important;
+}

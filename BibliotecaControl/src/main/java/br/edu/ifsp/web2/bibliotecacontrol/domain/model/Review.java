@@ -17,14 +17,14 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "loan")
-public class Loan {
+@Table(name = "review")
+public class Review {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
-	@Column(name = "date_loan")
+	@Column(name = "date_add")
 	@JsonFormat(pattern =  "dd/MM/yyyy")
 	private LocalDate date;
 	@NotNull
@@ -92,7 +92,7 @@ public class Loan {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Loan other = (Loan) obj;
+		Review other = (Review) obj;
 		return Objects.equals(id, other.id);
 	}
 }

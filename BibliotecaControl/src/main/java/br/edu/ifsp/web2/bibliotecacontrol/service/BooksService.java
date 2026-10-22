@@ -3,10 +3,12 @@ package br.edu.ifsp.web2.bibliotecacontrol.service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
 
 import br.edu.ifsp.web2.bibliotecacontrol.domain.model.Book;
 import br.edu.ifsp.web2.bibliotecacontrol.repository.BookRepository;
 
+@Service
 public class BooksService {
 	@Autowired
 	private BookRepository bookRepository;

@@ -27,7 +27,7 @@ export class ReviewListComponent {
   }
 
   list(): void{
-    this.reviewService.list()
+    this.reviewService.listByUser()
       .then(result => {
         this.Reviews = result;
       });

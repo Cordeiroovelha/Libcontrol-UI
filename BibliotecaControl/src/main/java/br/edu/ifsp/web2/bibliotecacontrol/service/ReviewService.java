@@ -1,25 +1,43 @@
 package br.edu.ifsp.web2.bibliotecacontrol.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
 
-import br.edu.ifsp.web2.bibliotecacontrol.domain.model.Loan;
-import br.edu.ifsp.web2.bibliotecacontrol.repository.LoanRepository;
+import br.edu.ifsp.web2.bibliotecacontrol.domain.model.Review;
+import br.edu.ifsp.web2.bibliotecacontrol.domain.model.User;
+import br.edu.ifsp.web2.bibliotecacontrol.repository.ReviewRepository;
+import br.edu.ifsp.web2.bibliotecacontrol.repository.UserRepository;
 
-public class LoanService {
+@Service
+public class ReviewService {
 	@Autowired
-	private LoanRepository loanRepository;
+	private ReviewRepository reviewRepository;
 	
-	public Loan update(Long id, Loan loan) {
-		Loan loanSaved = findLoanById(id);
-		BeanUtils.copyProperties(loan, loanSaved, "id");
-		return loanRepository.save(loanSaved);
+	@Autowired
+	private UserRepository userRepository;
+	
+	public Review update(Long id, Review loan) {
+		Review reviewSaved = findLoanById(id);
+		BeanUtils.copyProperties(loan, reviewSaved, "id");
+		return reviewRepository.save(reviewSaved);
 	}
 	
-	public Loan findLoanById(Long id) {
-		Loan loanSaved = loanRepository.findById(id).orElseThrow(()-> new EmptyResultDataAccessException(1));
-		return loanSaved;
+	public Review findLoanById(Long id) {
+		Review reviewSaved = reviewRepository.findById(id).orElseThrow(()-> new EmptyResultDataAccessException(1));
+		return reviewSaved;
+	}
+	
+	public List<Review> findByUser(String email){
+		Optional<User> user = userRepository.findByEmail(email);
+		if(user.isPresent()) {
+			return reviewRepository.findByUser(user.get());
+		}
+		return null;
 	}
 	
 }
