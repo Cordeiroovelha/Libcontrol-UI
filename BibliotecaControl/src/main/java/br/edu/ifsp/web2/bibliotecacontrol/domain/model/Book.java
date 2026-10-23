@@ -1,9 +1,5 @@
 package br.edu.ifsp.web2.bibliotecacontrol.domain.model;
 
-import java.time.LocalDate;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -24,12 +20,14 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotEmpty
-	@Size(max = 50)
+	@Size(max = 100)
 	private String name;
+	@NotEmpty
+	@Size(max = 50)
+	private String author;
 	@NotNull
 	@Column(name = "release_date")
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate release_date;
+	private int release_date;
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Category category;
@@ -59,11 +57,19 @@ public class Book {
 		this.name = name;
 	}
 
-	public LocalDate getRelease_date() {
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public int getRelease_date() {
 		return release_date;
 	}
 
-	public void setRelease_date(LocalDate release_date) {
+	public void setRelease_date(int release_date) {
 		this.release_date = release_date;
 	}
 
