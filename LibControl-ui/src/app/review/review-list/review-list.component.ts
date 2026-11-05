@@ -6,8 +6,8 @@ import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { ReviewService } from '../review.service';
 import { RouterLink } from '@angular/router';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
-import { BooksService } from '../../books/books.service';
 
 @Component({
   selector: 'app-review-list',
@@ -26,7 +26,8 @@ export class ReviewListComponent {
 
   constructor(
     private reviewService: ReviewService,
-    private booksService: BooksService
+    private confirmation: ConfirmationService,
+    private messageService: MessageService
     ){  }
 
   ngOnInit(): void {
@@ -38,11 +39,23 @@ export class ReviewListComponent {
       .then(result => {
         this.Reviews = result;
       });
-    
-    // this.booksService.list()
-    //   .then(result => {
-    //     this.Reviews = result;
-    //   });
+  }
+
+  confirmRemoval(review: any): void {
+    this.confirmation.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.delete(review);
+      }
+    });
+  }
+
+    delete(review: any): void {
+    this.reviewService.delete(review.id)
+      .then(() => {
+        this.list();
+        this.messageService.add({ severity: 'success', detail: 'Review excluída com sucesso!' });
+      });
   }
 
 }

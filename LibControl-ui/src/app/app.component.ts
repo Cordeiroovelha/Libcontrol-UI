@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ToastModule} from 'primeng/toast';
+import { ConfirmDialogModule } from 'primeng/confirmdialog'
 
-import { TooltipModule } from 'primeng/tooltip';
-import { BooksListComponent } from './books/books-list/books-list.component';
-import { LoginFormComponent } from './security/login-form/login-form.component';
 import { AuthService } from './security/auth.service';
 import { NavbarComponent } from './core/navbar/navbar.component';
 
@@ -16,12 +14,13 @@ import { NavbarComponent } from './core/navbar/navbar.component';
   imports: [
     RouterOutlet,
     NavbarComponent,
-    ButtonModule,
-    TableModule,
-    TooltipModule
+    ToastModule,
+    ConfirmDialogModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    MessageService,
+    ConfirmationService
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -12,6 +12,7 @@ import { BooksService, type BookOption } from '../../books/books.service';
 import { AuthService } from '../../security/auth.service';
 import { Review } from '../../core/model';
 import { ReviewService } from '../review.service';
+import { MessageComponent } from '../../shared/message/message.component';
 
 @Component({
   selector: 'app-review-register',
@@ -23,6 +24,7 @@ import { ReviewService } from '../review.service';
     TableModule,
     TooltipModule,
     DatePickerModule,
+    MessageComponent
   ],
   templateUrl: './review-register.component.html',
   styleUrl: './review-register.component.css'
