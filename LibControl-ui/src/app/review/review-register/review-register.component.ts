@@ -41,7 +41,7 @@ export class ReviewRegisterComponent {
     private reviewService: ReviewService,
     private auth: AuthService
   ) { 
-    this.review = new Review(this.auth.jwtPayload?.user_id, this.auth.jwtPayload?.book_id);
+    this.review = new Review(this.auth.jwtPayload?.user_id, this.selectedBook?.id);
   }
 
   ngOnInit(): void {
@@ -67,7 +67,7 @@ export class ReviewRegisterComponent {
      .then(() => {
         console.log('Review Feita com Sucesso!');
         reviewForm.reset();
-        this.review = new Review(this.auth.jwtPayload?.user_id, this.auth.jwtPayload?.book_id);
+        this.review = new Review(this.auth.jwtPayload?.user_id, this.selectedBook?.id);
      })
      .catch(error => console.log(error));
   }

@@ -30,11 +30,11 @@ public class Review {
 	@NotNull
 	@Column(name = "rate")
 	private float rate;
-	@NotEmpty
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	@NotEmpty
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "book_id")
 	private Book book;

@@ -7,6 +7,8 @@ import { TooltipModule } from 'primeng/tooltip';
 import { ReviewService } from '../review.service';
 import { RouterLink } from '@angular/router';
 
+import { BooksService } from '../../books/books.service';
+
 @Component({
   selector: 'app-review-list',
   imports: [
@@ -22,7 +24,10 @@ import { RouterLink } from '@angular/router';
 export class ReviewListComponent {
   Reviews = [];
 
-  constructor(private reviewService: ReviewService){ }
+  constructor(
+    private reviewService: ReviewService,
+    private booksService: BooksService
+    ){  }
 
   ngOnInit(): void {
     this.list();
@@ -34,10 +39,10 @@ export class ReviewListComponent {
         this.Reviews = result;
       });
     
-    this.reviewService.listByBook()
-      .then(result => {
-        this.Reviews = result;
-      });
+    // this.booksService.list()
+    //   .then(result => {
+    //     this.Reviews = result;
+    //   });
   }
 
 }

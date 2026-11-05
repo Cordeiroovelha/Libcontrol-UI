@@ -15,7 +15,7 @@ export class Review {
     rate!: number;
     user: any;
 
-    constructor(user_id: number, book_id: number){
+    constructor(user_id: number, book_id: any){
         this.user = new User();
         this.book = new Book();
         this.user.id = user_id;

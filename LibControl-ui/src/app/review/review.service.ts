@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { AuthService } from '../security/auth.service';
 import { Review } from '../core/model';
+import { BooksService } from '../books/books.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class ReviewService {
 
   constructor(
     private http: HttpClient,
-    private auth: AuthService
+    private auth: AuthService,
+    private booksService: BooksService
   ) { }
 
   async listByUser(): Promise<any> {
