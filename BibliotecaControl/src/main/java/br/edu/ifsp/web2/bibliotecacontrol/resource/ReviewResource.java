@@ -38,20 +38,29 @@ public class ReviewResource {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Review> findById(@PathVariable Long id){
-		Optional<Review> loan = reviewRepository.findById(id);
-		if(loan.isPresent())
-			return ResponseEntity.ok(loan.get());
+		Optional<Review> review = reviewRepository.findById(id);
+		if(review.isPresent())
+			return ResponseEntity.ok(review.get());
 		return ResponseEntity.notFound().build();
 	}
 	
 	@GetMapping("/user/{email}")
 	public ResponseEntity<List<Review>> listByUser(@PathVariable String email){
-		List<Review> activities = reviewService.findByUser(email);
-		if(!activities.isEmpty()) {
-			return ResponseEntity.ok(activities);
+		List<Review> review = reviewService.findByUser(email);
+		if(!review.isEmpty()) {
+			return ResponseEntity.ok(review);
 		}
 		return ResponseEntity.notFound().build();
 	}	
+	
+	@GetMapping("/books/{id}")
+	public ResponseEntity<List<Review>> listByBook(@PathVariable Long idBook){
+		List<Review> review = reviewService.findByBook(idBook);
+		if(!review.isEmpty()) {
+			return ResponseEntity.ok(review);
+		}
+		return ResponseEntity.notFound().build();
+	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.NO_CONTENT)

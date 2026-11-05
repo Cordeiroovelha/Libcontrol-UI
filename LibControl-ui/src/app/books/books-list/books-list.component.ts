@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
-import { BooksService } from '../books.service';
+import { BooksService, type BookOption } from '../books.service';
 
 @Component({
   selector: 'app-books-list',
@@ -18,7 +18,7 @@ import { BooksService } from '../books.service';
   styleUrl: './books-list.component.css'
 })
 export class BooksListComponent {
-  Livros = [];
+  Livros: BookOption[] = [];
 
   constructor(private booksService: BooksService){ }
 

@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import br.edu.ifsp.web2.bibliotecacontrol.domain.model.Book;
 import br.edu.ifsp.web2.bibliotecacontrol.domain.model.Review;
 import br.edu.ifsp.web2.bibliotecacontrol.domain.model.User;
+import br.edu.ifsp.web2.bibliotecacontrol.repository.BookRepository;
 import br.edu.ifsp.web2.bibliotecacontrol.repository.ReviewRepository;
 import br.edu.ifsp.web2.bibliotecacontrol.repository.UserRepository;
 
@@ -20,6 +22,9 @@ public class ReviewService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private BookRepository bookRepository;
 	
 	public Review update(Long id, Review loan) {
 		Review reviewSaved = findLoanById(id);
@@ -36,6 +41,14 @@ public class ReviewService {
 		Optional<User> user = userRepository.findByEmail(email);
 		if(user.isPresent()) {
 			return reviewRepository.findByUser(user.get());
+		}
+		return null;
+	}
+	
+	public List<Review> findByBook(Long idBook){
+		Optional<Book> book = bookRepository.findById(idBook);
+		if(book.isPresent()) {
+			return reviewRepository.findByBook(book.get());
 		}
 		return null;
 	}

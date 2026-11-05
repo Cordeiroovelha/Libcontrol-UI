@@ -5,7 +5,32 @@ export class User {
 }
 
 export class Book {
-    type!: 'FILOSOFIA';
-    date!: Date;
-
+    id!: number;
 }
+
+export class Review {
+    id!: number;
+    book!: any;
+    date!: Date;
+    rate!: number;
+    user: any;
+
+    constructor(user_id: number, book_id: number){
+        this.user = new User();
+        this.book = new Book();
+        this.user.id = user_id;
+        this.book.id = book_id;
+    }
+
+    static toJson(review: Review): any {
+        return {
+            id: review.id,
+            date: moment(review.date).format('DD/MM/YYYY'),
+            rate: review.rate,
+            user: { id: review.user.id },
+            book: { id: review.book.id }
+        }    
+    }
+}
+
+

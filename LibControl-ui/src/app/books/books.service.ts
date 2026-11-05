@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
+export interface BookOption {
+  id: number;
+  name: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +16,8 @@ export class BooksService {
 
   constructor(private http: HttpClient) { }
 
-  async list(): Promise<any> {
-    return await firstValueFrom(this.http.get(this.booksUrl));
+  async list(): Promise<BookOption[]> {
+    return await firstValueFrom(this.http.get<BookOption[]>(this.booksUrl));
   }
   
 }

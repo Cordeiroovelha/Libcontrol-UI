@@ -8,7 +8,7 @@ CREATE TABLE book (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO book (id, name, author, release_date, category, rated) 
-VALUES (1, 'Capitão de areia', 'Jorge Amado', '1993', 'NACIONAL', 4.5);
+VALUES (1, 'Capitães da areia', 'Jorge Amado', '1993', 'NACIONAL', 4.5);
 
 INSERT INTO book (id, name, author, release_date, category, rated) 
 VALUES (2, 'Hamlet', 'William Shakespeare', '1964', 'INTERNACIONAL', 4.5);
@@ -32,7 +32,7 @@ INSERT INTO book (id, name, author, release_date, category, rated)
 VALUES (8, 'Discurso do Método', 'René Descartes', '1637', 'FILOSOFIA', 4);
 
 INSERT INTO book (id, name, author, release_date, category, rated) 
-VALUES (9, 'Todas Técnicas Culinárias: Le Cordon Bleu ', 'Jeni Wright', '2005', 'GASTRONOMIA', 5);
+VALUES (9, 'Todas Técnicas Culinárias: Le Cordon Bleu', 'Jeni Wright', '2005', 'GASTRONOMIA', 5);
 
 INSERT INTO book (id, name, author, release_date, category, rated) 
 VALUES (10, 'Vidas Secas', 'Graciliano Ramos', '1964', 'NACIONAL', 4.5);
