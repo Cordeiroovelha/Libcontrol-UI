@@ -1,9 +1,9 @@
 <div class="container">
-  <form #f="ngForm" autocomplete="off" (ngSubmit)="save(f)">
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="save()">
 
     <div class="p-grid">
       <div class="p-col-12 title">
-        <h1>Nova Review</h1>
+        <h1>{{ editing ? 'Edição de' : 'Nova' }} Review</h1>
       </div>
 
       <div class="p-col-12 p-md-6 my-2 p-fluid">
@@ -41,11 +41,12 @@
       <div class="p-col-12">
       	<p>
 	        <button pButton class="my-2" type="submit" label="Salvar" [disabled]="f.invalid"></button>
-          <button pButton class="my-2" type="button" label="Nova" class="p-button-info"></button>
+          <button pButton type="button" label="Nova" class="p-button-info"
+            (click)="new(f)"></button>
         </p>
       </div>
       <div class="p-col-12">
-	        <a class="my-2" href="javascript:;">Voltar para a pesquisa</a>
+	        <a routerLink="/reviews">Voltar para a pesquisa</a>
       </div>
     </div>
 

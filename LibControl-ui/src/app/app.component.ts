@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, LOCALE_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule} from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog'
 
 import { AuthService } from './security/auth.service';
 import { NavbarComponent } from './core/navbar/navbar.component';
+import { ErrorHandler } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +19,8 @@ import { NavbarComponent } from './core/navbar/navbar.component';
   ],
   providers: [
     AuthService,
-    MessageService,
-    ConfirmationService
+    ErrorHandler,
+    { provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -29,5 +29,4 @@ import { NavbarComponent } from './core/navbar/navbar.component';
 export class AppComponent {
   title = 'LibControl-ui';
 }
-
 

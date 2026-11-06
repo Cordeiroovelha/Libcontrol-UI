@@ -8,6 +8,7 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -16,6 +17,8 @@ export function tokenGetter(): any {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
+    MessageService,
+    ConfirmationService,
     provideHttpClient(
       withInterceptorsFromDi() // Importante para que os interceptores do JwtModule funcionem
     ),
