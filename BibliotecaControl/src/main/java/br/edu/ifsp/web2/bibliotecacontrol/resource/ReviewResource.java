@@ -64,7 +64,6 @@ public class ReviewResource {
 	}
 	
 	@PostMapping
-	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public Review create(@Valid @RequestBody Review review,
 			HttpServletRequest response) {
 		return reviewRepository.save(review);

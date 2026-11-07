@@ -117,7 +117,7 @@ export class ReviewRegisterComponent {
     this.reviewService.add(this.review)
       .then(addedReview => {
         this.messageService.add({ severity: 'success', detail: 'Review Feita com Sucesso!' });
-        this.loadReview(addedReview);
+        this.loadReview(addedReview.id);
         this.router.navigate(['/reviews', addedReview.id])
       })
       .catch(error => this.errorHandler.handle(error));

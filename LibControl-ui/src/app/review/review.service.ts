@@ -25,7 +25,7 @@ export class ReviewService {
     return await firstValueFrom(this.http.get(`${this.reviewUrl}/user/${this.email}`));
   }
 
-  async add(review: Review): Promise<any> {
+  async add(review: Review): Promise<Review> {
     const headers = new HttpHeaders({ 'Content-type': 'application/json'});
     const body = Review.toJson(review);
     return await firstValueFrom(this.http.post<Review>(this.reviewUrl, body, { headers}));

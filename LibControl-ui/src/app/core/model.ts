@@ -13,6 +13,7 @@ export class Review {
     book!: any;
     date!: Date;
     rate!: number;
+    commentary!: string;
     user: any;
 
     constructor(user_id: number, book_id: any){
@@ -27,6 +28,7 @@ export class Review {
             id: review.id,
             date: moment(review.date).format('DD/MM/YYYY'),
             rate: review.rate,
+            commentary: review.commentary,
             user: { id: review.user.id },
             book: { id: review.book.id }
         }    

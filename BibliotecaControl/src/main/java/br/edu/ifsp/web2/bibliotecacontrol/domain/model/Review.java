@@ -30,6 +30,9 @@ public class Review {
 	@Column(name = "rate")
 	private float rate;
 	@NotNull
+	@Column(name = "Commentary")
+	private String commentary;
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -62,6 +65,14 @@ public class Review {
 		this.rate = rate;
 	}
 
+	public String getCommentary() {
+		return commentary;
+	}
+
+	public void setCommentary(String commentary) {
+		this.commentary = commentary;
+	}
+	
 	public User getUser() {
 		return user;
 	}
