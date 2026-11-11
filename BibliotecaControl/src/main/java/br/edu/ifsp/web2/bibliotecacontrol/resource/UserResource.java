@@ -51,10 +51,9 @@ public class UserResource {
 	
 	// Create New User
 	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
-	public User create(@Valid @RequestBody User user,
-			HttpServletResponse response) {
-		return userRepository.save(user);
+	@ResponseStatus(HttpStatus.CREATED) 
+	public User create(@Valid @RequestBody User user, HttpServletResponse response) {
+		return userService.save(user); // aqui!!!
 	}
 
 	// Delete User
@@ -75,5 +74,6 @@ public class UserResource {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void atualizarPropriedadeAtivo(@PathVariable Long id, @RequestBody Boolean active) {
 		userService.updateActiveProperty(id, active);
+		
 	}
 }

@@ -31,8 +31,11 @@ public class Book {
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Category category;
+	@NotNull
 	private float rated;
-
+	private String cover;
+	
+	
 	public float getRated() {
 		return rated;
 	}
@@ -81,4 +84,12 @@ public class Book {
 		this.category = category;
 	}
 
+	public String getCover() {
+		return cover;
+	}
+
+	public void setCover(String cover) {
+		this.cover = cover;
+	}
+	
 }

@@ -7,10 +7,12 @@ import { LoginFormComponent } from './security/login-form/login-form.component';
 
 import { ReviewListComponent } from './review/review-list/review-list.component';
 import { ReviewRegisterComponent } from './review/review-register/review-register.component'
+import { UserRegisterComponent } from './users/user-register/user-register.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'books', component: BooksListComponent },
+    { path: 'users/new', component: UserRegisterComponent },
     { path: 'login', component: LoginFormComponent },
     { path: 'reviews', component: ReviewListComponent},
     { path: 'reviews/new', component: ReviewRegisterComponent},

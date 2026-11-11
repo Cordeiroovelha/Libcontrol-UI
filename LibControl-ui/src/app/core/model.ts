@@ -2,10 +2,42 @@ import moment from 'moment';
 
 export class User {
     id!: number;
+    name!: string;
+    email!: string;
+    password!: string;
+    active!: true;
+
+    static toJson(user: User): any{
+        return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            active: user.active
+        }
+    }
 }
 
 export class Book {
     id!: number;
+    name!: string;
+    author!: string;
+    release_date!: number;
+    category!: 'NACIONAL';
+    rated!: number;
+    cover!: string;
+
+    static toJson(book : Book): any{
+        return {
+            id: book.id,
+            name: book.name,
+            author: book.author,
+            release_date: book.release_date,
+            category: book.category,
+            rated: book.rated,
+            cover: book.cover
+        }
+    }
 }
 
 export class Review {

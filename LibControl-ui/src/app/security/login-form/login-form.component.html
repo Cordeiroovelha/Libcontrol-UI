@@ -25,7 +25,7 @@
         <p><button pButton type="submit" label="Login" [disabled]="!f.valid"
           (click)="login(user.value, password.value)" class="p-button"></button>
         </p>
-        <a pButton label="Cadastrar"></a>
+        <a pButton label="Cadastrar" routerLink="/users/new"></a>
       </div>
 
     </div>
