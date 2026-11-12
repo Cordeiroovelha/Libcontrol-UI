@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
@@ -9,6 +9,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { ErrorHandlerService } from '../../core/error-handler.service';
 import { ReviewService } from '../review.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-review-list',
@@ -18,6 +19,9 @@ import { ReviewService } from '../review.service';
     TableModule,
     TooltipModule,
     RouterLink
+  ],
+  providers:[
+    Title
   ],
   templateUrl: './review-list.component.html',
   styleUrl: './review-list.component.css'
@@ -29,10 +33,13 @@ export class ReviewListComponent {
     private reviewService: ReviewService,
     private confirmation: ConfirmationService,
     private messageService: MessageService,
-    private errorHandler: ErrorHandlerService
+    private errorHandler: ErrorHandlerService,
+    private title: Title,
+    private router: Router
     ){  }
 
   ngOnInit(): void {
+    this.title.setTitle('Suas Reviews');
     this.list();
   }
 
@@ -41,7 +48,11 @@ export class ReviewListComponent {
       .then(result => {
         this.Reviews = result;
       })
-      .catch(error => this.errorHandler.handle(error));
+      .catch(error => {
+        if (error.status === 401 || error.status === 403) {
+            this.router.navigate(['/login']);
+        }
+      });
   }
 
   confirmRemoval(review: any): void {

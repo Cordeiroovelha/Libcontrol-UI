@@ -7,6 +7,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { DatePickerModule } from 'primeng/datepicker';
 import { SelectModule } from 'primeng/select';
 import { CommonModule } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-book-register',
@@ -19,6 +20,9 @@ import { CommonModule } from '@angular/common';
     TooltipModule,
     DatePickerModule,
     SelectModule
+  ],
+  providers: [
+    Title
   ],
   templateUrl: './book-register.component.html',
   styleUrl: './book-register.component.css'

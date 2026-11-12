@@ -2,6 +2,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Component} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -30,6 +31,9 @@ import { ErrorHandlerService } from '../../core/error-handler.service';
     MessageComponent,
     RouterModule
   ],
+  providers:[
+    Title
+  ],
   templateUrl: './review-register.component.html',
   styleUrl: './review-register.component.css'
 })
@@ -49,7 +53,8 @@ export class ReviewRegisterComponent {
     private messageService: MessageService,
     private errorHandler: ErrorHandlerService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private title: Title
   ) { 
     this.review = new Review(this.auth.jwtPayload?.user_id, this.selectedBook?.id);
   }
@@ -61,6 +66,7 @@ export class ReviewRegisterComponent {
     if (id && id !== 'new') {
       this.loadReview(Number(id));
     }
+    this.title.setTitle('Cadastro de Reviews');
   }
 
   async loadBooks(): Promise<void> {

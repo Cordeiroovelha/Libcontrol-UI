@@ -15,3 +15,7 @@ h1 {
 button, a, input{
   width: 100%;
 }
+
+a {
+  text-decoration: none;
+}

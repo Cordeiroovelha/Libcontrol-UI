@@ -1,14 +1,15 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
+import { routes } from './app.routes';
+import { LibControlHttpInterceptor } from './security/LibControl-http-interceptor';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -28,7 +29,11 @@ export const appConfig: ApplicationConfig = {
         config: {
           tokenGetter: tokenGetter,
           allowedDomains: ['localhost:8080'],
-          disallowedRoutes: ['http://localhost:8080/auth/login', 'http://localhost:8080/user']
+          disallowedRoutes: [
+            'http://localhost:8080/auth/login', 
+            'http://localhost:8080/auth/refresh', 
+            'http://localhost:8080/user'
+          ]
         }
       })
     ),
@@ -38,6 +43,11 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: Aura
       }
-    })
+    }),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LibControlHttpInterceptor,
+      multi: true
+    }
   ]
 };
