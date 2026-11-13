@@ -10,6 +10,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { AuthService } from './security/auth.service';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { ErrorHandlerService } from './core/error-handler.service';
+import { FooterComponent } from './core/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { ErrorHandlerService } from './core/error-handler.service';
     CommonModule,
     RouterOutlet,
     NavbarComponent,
+    FooterComponent,
     ToastModule,
     ConfirmDialogModule
   ],

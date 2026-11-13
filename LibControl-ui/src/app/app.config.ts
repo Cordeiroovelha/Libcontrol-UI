@@ -5,6 +5,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 import { providePrimeNG } from 'primeng/config';
+import { definePreset } from '@primeng/themes';
 import Aura from '@primeng/themes/aura';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
