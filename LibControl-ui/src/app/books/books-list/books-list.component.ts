@@ -1,12 +1,11 @@
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
-import { TooltipModule } from 'primeng/tooltip';
 
-import { BooksService, type BookOption } from '../books.service';
+import { BooksService, type BookList } from '../books.service';
 
 
 @Component({
@@ -15,8 +14,7 @@ import { BooksService, type BookOption } from '../books.service';
   imports: [
     CommonModule,
     ButtonModule,
-    TableModule,
-    TooltipModule
+    RouterLink
   ],
   providers:[
     Title
@@ -25,7 +23,7 @@ import { BooksService, type BookOption } from '../books.service';
   styleUrl: './books-list.component.css'
 })
 export class BooksListComponent {
-  Livros: BookOption[] = [];
+  Livros: BookList[] = [];
 
   constructor(
     private booksService: BooksService,
@@ -42,5 +40,9 @@ export class BooksListComponent {
       .then(result => {
         this.Livros = result;
       });
+  }
+
+  coverUrl(cover: string): string {
+    return `/CapasLibControl/${encodeURIComponent(cover)}`;
   }
 }

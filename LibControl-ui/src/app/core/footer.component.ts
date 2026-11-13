@@ -69,7 +69,7 @@ import { Component } from '@angular/core';
     }
 
     footer a:hover {
-      color: black !important;
+      color: rgb(137, 137, 137) !important;
       text-decoration: none !important;
     }
 

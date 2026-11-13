@@ -7,6 +7,14 @@ export interface BookOption {
   name: string;
 }
 
+export interface BookList extends BookOption {
+  author: string;
+  release_date: number;
+  category: string;
+  rated: number;
+  cover: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,8 +24,8 @@ export class BooksService {
 
   constructor(private http: HttpClient) { }
 
-  async list(): Promise<BookOption[]> {
-    return await firstValueFrom(this.http.get<BookOption[]>(this.booksUrl));
+  async list(): Promise<BookList[]> {
+    return await firstValueFrom(this.http.get<BookList[]>(this.booksUrl));
   }
   
 }
