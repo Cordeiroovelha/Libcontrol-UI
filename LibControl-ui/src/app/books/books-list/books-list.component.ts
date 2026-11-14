@@ -1,7 +1,7 @@
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { ButtonModule } from 'primeng/button';
 
@@ -27,7 +27,8 @@ export class BooksListComponent {
 
   constructor(
     private booksService: BooksService,
-    private title: Title
+    private title: Title,
+    private router: Router
   ){ }
 
   ngOnInit(): void {
@@ -39,6 +40,11 @@ export class BooksListComponent {
     this.booksService.list()
       .then(result => {
         this.Livros = result;
+      })
+      .catch(error => {
+        if (error.status === 401 || error.status === 403) {
+            this.router.navigate(['/login']);
+        }
       });
   }
 

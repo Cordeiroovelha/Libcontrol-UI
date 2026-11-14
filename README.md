@@ -88,6 +88,21 @@ O projeto está em desenvolvimento e contribuições são bem-vindas. Sinta-se �
 
 ---
 
+## 📁 Links de apoio
+
+```bash
+#doc do bootstrap
+https://getbootstrap.com/
+
+#fontes para referencia
+https://fontawesome.com
+
+#exemplos de designes html
+https://onepagelove.com/
+```
+
+---
+
 ## 📄 Licença
 
 Este projeto ainda não possui uma licença definida. Entre em contato com o mantenedor para mais informações.
