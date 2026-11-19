@@ -79,6 +79,14 @@
   color: #fff;
 }
 
+.page-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
 .navbar-user {
       padding: 15px;
       margin-bottom: 15px;
